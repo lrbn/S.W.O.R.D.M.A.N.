@@ -1,13 +1,24 @@
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, '', { preload: preload, create: create, update: update });
+// Create a container object called the 'stage'
+var stage = new PIXI.Container();
 
-function preload() {
-  game.load.image('test', 'assets/test.png');
-}
+// Create the renderer
+var renderer = PIXI.autoDetectRenderer(400, 400);
 
-function create() {
-  game.add.sprite(0, 0, 'test');
-}
+// Add the canvas to the HTML document
+document.body.appendChild(renderer.view);
 
-function update() {
+PIXI.loader
+  .add("assets/test.png")
+  .load(setup);
 
+function setup() {
+
+  var test = new PIXI.Sprite(
+    PIXI.loader.resources["assets/test.png"].texture
+  );
+
+  stage.addChild(test);
+
+  // Tell the 'renderer' to 'renderer' the 'stage'
+  renderer.render(stage);
 }
