@@ -22,7 +22,3 @@ function setup() {
   // Tell the 'renderer' to 'renderer' the 'stage'
   renderer.render(stage);
 }
-
-// Remember to launch web server!
-// Open game with terminal command:
-// open http://localhost:8888/htdocs/S.W.O.R.D.M.A.N./
